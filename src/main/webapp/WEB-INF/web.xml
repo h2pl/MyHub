@@ -16,7 +16,7 @@
         </param-value>
     </context-param>
 
-    <!-- spring MVC config start-->
+    <!-- spring com.cat.confignfig start-->
     <servlet>
         <servlet-name>spring</servlet-name>
         <!--DispatcherServlet这是spring mvc的核心-->
@@ -32,7 +32,7 @@
         <servlet-name>spring</servlet-name>
         <url-pattern>/</url-pattern>  <!--拦截所有请求,拦截后web容器会将拦截的请求交给DispatcherServlet处理-->
     </servlet-mapping>
-    <!-- spring MVC config end-->
+    <!-- spring com.cat.confignfig end-->
 
     <!-- Spring监听器 -->
     <listener>
