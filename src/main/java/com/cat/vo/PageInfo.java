@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * This class is used to wrap paging information.
  * 
- * @author liangmanman
+ *
  *
  */
 public class PageInfo {

@@ -9,10 +9,6 @@ import java.io.Serializable;
 import java.util.Map;
 
 /**
- * This class is defined the response format for console.
- * 
- * @author jiangzhixiang
- *
  */
 public class SResponseEntity implements Serializable {
 

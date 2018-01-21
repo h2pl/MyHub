@@ -6,9 +6,6 @@ import java.util.Map;
 
 /**
  * This class is a common operation interface.
- * 
- * @author liangmanman
- * 
  * @param <T>
  */
 public interface IOperations<T extends Serializable> {

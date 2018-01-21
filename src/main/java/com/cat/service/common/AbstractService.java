@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * This is a class to implement the common service operations.
  * 
- * @author liangmanman
+ *
  * 
  * @param <T>
  */
@@ -56,9 +56,6 @@ public abstract class AbstractService<T extends Serializable> implements IOperat
     }
 
     /**
-     * @author liangmanman
-     * @param filterName
-     * @param filterValue
      * @return
      */
     @Override

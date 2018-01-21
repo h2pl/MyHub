@@ -9,8 +9,6 @@ import com.cat.vo.PageInfo;
 
 /**
  * This class is defined the response format for console.
- * 
- * @author liangmanman
  *
  */
 public class SimpleResponseEntity extends AbstractResponseEntity {

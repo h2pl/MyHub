@@ -11,8 +11,7 @@ import java.util.Map;
 /**
  * This <code>RequestEntity</code> class is used to store the http request
  * parameters.
- * 
- * @author liangmanman
+
  * 
  */
 public class RequestEntity implements Serializable {

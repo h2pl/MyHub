@@ -43,5 +43,6 @@ public class UserController {
         commonResponseEntity.setRetData(user);
         logger.info("ok");
         return commonResponseEntity;
+
     }
 }

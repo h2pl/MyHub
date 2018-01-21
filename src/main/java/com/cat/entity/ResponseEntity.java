@@ -12,8 +12,6 @@ import java.util.Map;
  * 
  * This <code>ResponseEntity</code> class is used to store the parser results.
  * 
- * @author liangmanman
- * 
  */
 public class ResponseEntity implements Serializable {
 

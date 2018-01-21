@@ -11,7 +11,7 @@ import java.util.Locale;
  *
  * This ConstantUtil class is used to define constant variables.
  *
- * @author liangmanman@baidu.com
+ *
  *
  */
 public class ConstantUtil {
@@ -36,4 +36,7 @@ public class ConstantUtil {
 
     // Define rest request prefix
     public static final String REST_PREFIX = "/action";
+    public static String STRING_TYPE_JSON;
+    public static String STRING_TYPE_XML;
+    public static String STRING_TYPE_HTML_TEXT;
 }

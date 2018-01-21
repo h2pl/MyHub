@@ -15,8 +15,6 @@ import java.util.Map;
 
 /**
  * This class is used to implement common hibernate CRUD operations.
- * 
- * @author liangmanman
  *
  * 
  */
