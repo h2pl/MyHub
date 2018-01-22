@@ -1,0 +1,120 @@
+/*
+
+	Template: Cottage : Single Property Template;
+	Author: Appclick;
+	Color: Default - Saffron;
+	Website: http://appclick.in;
+	File : default-style.css : #e44621
+
+*/
+
+
+/*=======================
+	background-color
+========================*/
+
+blockquote,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus,
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.prop-detail .nav-tabs>li.active>a,
+.cottage-nearby ul li i,
+.appointment-page .input-group-addon,
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus,
+.sidebar-widget .tabbed-widget ul.nav li.active a,
+.gallery-classic ul.nav-tabs li.active a,
+.gallery-classic ul.nav-tabs li a:hover,
+.bg-orange,
+.top-menu li,
+.contact-us-container,
+.tour .video-section .caption-box {
+    background-color: #e44621 !important;
+}
+
+@media screen and (max-width: 767px) {
+    .dropdown-menu > li.active > a {
+        background-color: #e44621 !important;
+    }
+}
+
+.btn-blue-orange:hover,
+.btn-orange-blue,
+.btn-orange-white {
+    background-color: #e44621;
+}
+
+
+/*=======================
+	border-color
+========================*/
+
+.div-title > span {
+    border-bottom: 3px solid #e44621;
+}
+
+.appointment-page .input-group-addon {
+    border: 1px solid #e44621;
+}
+
+.sidebar ul.widget-list li:hover a {
+    border-left: 3px solid #e44621;
+}
+
+hr.section-title-hr {
+    border: 2px solid #e44621;
+}
+
+.cottage-msgbox a:hover {
+    border: 2px solid #e44621;
+}
+
+.contact-us-container-2 .contact-us:hover {
+    border: 2px solid #e44621;
+}
+
+.primary-footer h3 {
+    border-left: 2px solid #e44621;
+}
+
+
+/*=======================
+	font-color
+========================*/
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus,
+.hero h3,
+.about_cottage ul li h3,
+.prop-detail .tab-content ul li i,
+.agent-contact-detail .detail .fa,
+.contact-1 ul li span,
+.tabbed-widget .tab-content ul.comments-list li a.comment-user,
+.footer-agent-contact .footer-agent h1,
+.footer-agent-contact .footer-agent ul.social li a:hover,
+.panel-default .panel-title i.fa,
+.gallery-standard h3,
+.gallery-standard li a:active,
+.gallery-standard li a:focus,
+.gallery-standard li a:hover,
+.nearby-places .nearby-info h4,
+.about_property ul li h3,
+.cottage-msgbox a:hover,
+.btn-orange-white:hover,
+.contact-us-container-2 .box span a:hover,
+.contact-us-container-2 .contact-us:hover,
+.tour .caption-box i.fa,
+.footer-agent-contact .footer-agent .info-box i.fa,
+.footer-agent-contact .footer-agent h6 strong {
+    color: #e44621;
+}
+
+.gallery-standard li.active a {
+    color: #e44621 !important;
+}

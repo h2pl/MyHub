@@ -1,0 +1,80 @@
+/* Main Style */
+
+.toggle-switcher {
+    background: #FBFBFB;
+    width: 159px;
+    position: fixed;
+    top: 30%;
+    z-index: 99999;
+    left: 0px;
+    border-radius: 0 0 4px 0;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    font-family: 'Lato', Arial, sans-serif;
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(51, 51, 51, 0.4);
+    box-shadow: 0px 0px 4px 0px rgba(51, 51, 51, 0.4);
+}
+
+.toggle-switcher h2 {
+    background: #474646;
+    color: #FFFFFF;
+    padding: 0;
+    width: 190px;
+    font-size: 14px !important;
+    padding: 13px 5px 10px 15px;
+    margin-top: 0px;
+}
+
+.toggle-switcher h2 a {
+    font-size: 8px;
+    background-color: #474646;
+    color: #fff;
+    padding-top: 8px;
+    display: block !important;
+    height: 38px;
+    position: absolute;
+    right: -39px;
+    top: 0;
+    width: 39px;
+    border-radius: 0 4px 4px 0;
+}
+
+.toggle-switcher .switcher-box {
+    padding: 5px 16px 16px 16px !important;
+    margin: 0 !important;
+    background: none !important;
+    overflow: hidden;
+}
+
+.toggle-switcher .switcher-box h3 {
+    font-size: 14px;
+}
+
+.toggle-switcher .switcher-box .styleswitch#default {
+    background-color: #e44621;
+}
+
+.toggle-switcher .switcher-box .styleswitch#dark-red {
+    background-color: #e4213c;
+}
+
+.toggle-switcher .switcher-box .styleswitch#parrot {
+    background-color: #71b100;
+}
+
+.toggle-switcher .switcher-box .styleswitch#blue {
+    background-color: #2193e4;
+}
+
+.toggle-switcher .switcher-box .styleswitch#sky {
+    background-color: #50c6b8;
+}
+
+.switcher-box a.styleswitch {
+    width: 21px;
+    height: 24px;
+    display: block;
+    cursor: pointer;
+    margin: 0 4px 4px 0;
+    float: left;
+}
