@@ -90,7 +90,6 @@ public abstract class AbstractHibernateDao<T extends Serializable> implements IO
     }
 
     /**
-     * @author liangmanman
      * @param filterName
      * @param filterValue
      * @return
