@@ -5,6 +5,8 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 /**
  * Created by 周杰伦 on 2018/1/12.
  */
@@ -14,7 +16,8 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
     private Integer id;
 
     @Column(name = "username")

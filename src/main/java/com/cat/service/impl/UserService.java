@@ -2,13 +2,10 @@ package com.cat.service.impl;
 
 import com.cat.dao.IUserDao;
 import com.cat.dao.common.IOperations;
-import com.cat.dao.impl.UserDao;
 import com.cat.model.User;
 import com.cat.service.IUserService;
 import com.cat.service.common.AbstractService;
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

@@ -18,16 +18,29 @@
 
 </head>
 <body>
-<button id ="create">增</button>
+<button id ="create">增</button><br>
+username: <input type="text" id = "username"><br>
+password: <input type="password" id = "password">
+<br>
 <button id ="delete">删</button>
+<br>
+id:<input type="text" id = "deleteid">
+<br>
+
 <button id ="put">改</button>
+<br>
+id:<input type="text" id = "editid">
+<br>
+
 <button id ="get">查</button>
+<br>
+id:<input type="text" id = "getid">
 
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/json.js"></script>
 
 <script>
-    alert("<%=basePath%>");
+    <%--alert("<%=basePath%>");--%>
 //
 //    $(document).ready(function(){
 //        $("#get").click(function(){
@@ -39,33 +52,58 @@
 //    });
     $(document).ready(function(){
         $("#create").click(function(){
+            var username = $("#username").val();
+            var password = $("#password").val();
             $.postJSON("mysql/create",
                 {
-                    "username" : "hpl",
-                    "password" : 123
+                    "userName" : username,
+                    "passWord" : password
                 },
                 function (msg) {
-                    alert(msg)
+                    JSON.stringify(msg)
                 }
             )
         });
     });
-//    $(document).ready(function(){
-//        $("#delete").click(function(){
-//            $.delete("mysql/get",function(data,status){
-//                alert("数据：" + data + "\n状态：" + status);
-//            });
-//            alert("get")
-//        });
-//    });
-//    $(document).ready(function(){
-//        $("#get").click(function(){
-//            $.get("mysql/get",function(data,status){
-//                alert("数据：" + data + "\n状态：" + status);
-//            });
-//            alert("get")
-//        });
-//    });
+    $(document).ready(function(){
+        $("#get").click(function(){
+            var id = $("#getid").val();
+            $.getJSON("mysql/get/" + id,{
+
+            },
+                function (msg) {
+                    alert(JSON.stringify(msg))
+                }
+            )
+        });
+    });
+    $(document).ready(function(){
+        $("#delete").click(function(){
+            var id = $("#deleteid").val();
+            $.deleteJSON("mysql/delete/" + id,{
+
+                },
+                function (msg) {
+                    alert(JSON.stringify(msg))
+                }
+            )
+        });
+    });
+    $(document).ready(function(){
+        $("#put").click(function(){
+            var id = $("#editid").val();
+            $.putJSON("mysql/edit",{
+                    "id" : id,
+                    "userName" : "hpl",
+                    "passWord" : "2345"
+                },
+                function (msg) {
+                    alert(JSON.stringify(msg))
+                }
+            )
+        });
+    });
+
 </script>
 </body>
 </html>

@@ -1,13 +1,14 @@
 package com.cat.controller;
 
 import com.cat.entity.CommonResponseEntity;
+import com.cat.exception.HubException;
 import com.cat.model.User;
 import com.cat.service.IUserService;
+import com.cat.util.ConstantUtil;
+import com.cat.vo.user.RegisterRequest;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -25,31 +26,74 @@ public class MysqlTestController {
 
     @ResponseBody
     @RequestMapping(value = "create", method = RequestMethod.POST)
-    public CommonResponseEntity ceateUser(User user){
+    public CommonResponseEntity createUser(@RequestBody RegisterRequest registerRequest){
         CommonResponseEntity commonResponseEntity = new CommonResponseEntity();
-        user.setUserName(user.getUserName());
-        user.setPassWord(user.getPassWord());
-        userService.create(user);
-        commonResponseEntity.setRetData(user);
-        logger.info("ok");
+        commonResponseEntity.setRetCode(ConstantUtil.RETCODE_ERROR);
+        try {
+            User user = new User();
+            user.setUserName(registerRequest.getUserName());
+            user.setPassWord(registerRequest.getPassWord());
+            userService.create(user);
+            commonResponseEntity.setRetData(user);
+            commonResponseEntity.setRetCode(ConstantUtil.RETCODE_CORRECT);
+        }catch (Exception e) {
+            logger.error(e.getMessage());
+            commonResponseEntity.setRetMsg(ConstantUtil.QUERY_MSG_ERROR + e.getMessage());
+            return commonResponseEntity;
+        }
         return commonResponseEntity;
     }
 
     @ResponseBody
-    @RequestMapping(value = "create", method = RequestMethod.DELETE)
-    public String deleteUser(){
-        return "mysql";
+    @RequestMapping(value = "delete/{id}", method = RequestMethod.DELETE)
+    public CommonResponseEntity deleteUser(@PathVariable("id") Integer id){
+        CommonResponseEntity commonResponseEntity = new CommonResponseEntity();
+        commonResponseEntity.setRetCode(ConstantUtil.RETCODE_ERROR);
+        try {
+            userService.deleteByCondition("id", id);
+            commonResponseEntity.setRetCode(ConstantUtil.RETCODE_CORRECT);
+        }catch (Exception e) {
+            logger.error(e.getMessage());
+            commonResponseEntity.setRetMsg(ConstantUtil.QUERY_MSG_ERROR + e.getMessage());
+
+            return commonResponseEntity;
+        }
+
+        return commonResponseEntity;
     }
 
     @ResponseBody
-    @RequestMapping(value = "create", method = RequestMethod.PUT)
-    public String editUser(){
-        return "mysql";
+    @RequestMapping(value = "edit", method = RequestMethod.PUT)
+    public CommonResponseEntity editUser(@RequestBody User user){
+        CommonResponseEntity commonResponseEntity = new CommonResponseEntity();
+        commonResponseEntity.setRetCode(ConstantUtil.RETCODE_ERROR);
+        try {
+            userService.update(user);
+            commonResponseEntity.setRetData(user);
+            commonResponseEntity.setRetCode(ConstantUtil.RETCODE_CORRECT);
+        }catch (Exception e) {
+            logger.error(e.getMessage());
+            commonResponseEntity.setRetMsg(ConstantUtil.QUERY_MSG_ERROR + e.getMessage());
+            return commonResponseEntity;
+        }
+        return commonResponseEntity;
     }
 
     @ResponseBody
-    @RequestMapping(value = "create", method = RequestMethod.GET)
-    public String getUser(){
-        return "mysql";
+    @RequestMapping(value = "get/{id}", method = RequestMethod.GET)
+    public CommonResponseEntity getUser(@PathVariable("id") Integer id){
+        CommonResponseEntity commonResponseEntity = new CommonResponseEntity();
+        commonResponseEntity.setRetCode(ConstantUtil.RETCODE_ERROR);
+        try {
+            User user = userService.findOneById(id);
+            commonResponseEntity.setRetData(user);
+            commonResponseEntity.setRetCode(ConstantUtil.RETCODE_CORRECT);
+        }catch (Exception e) {
+            logger.error(e.getMessage());
+            commonResponseEntity.setRetMsg(ConstantUtil.QUERY_MSG_ERROR + e.getMessage());
+            return commonResponseEntity;
+        }
+
+        return commonResponseEntity;
     }
 }

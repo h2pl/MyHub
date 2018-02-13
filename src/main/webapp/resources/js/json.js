@@ -10,8 +10,8 @@ $.getJSON = function (url,data,callback){
         dataType:"json",
         timeout:10000,
         data:data,
-        success:function(data){
-            callback(data);
+        success:function(msg){
+            callback(msg);
         }
     });
 };
@@ -26,7 +26,7 @@ $.postJSON = function(url,data,callback){
         type:"post",
         contentType:"application/json",
         dataType:"json",
-        data:data,
+        data:JSON.stringify(data),
         timeout:60000,
         success:function(msg){
             callback(msg);
@@ -47,7 +47,7 @@ $.putJSON = function(url,data,callback){
         type:"put",
         contentType:"application/json",
         dataType:"json",
-        data:data,
+        data:JSON.stringify(data),
         timeout:20000,
         success:function(msg){
             callback(msg);
@@ -67,7 +67,7 @@ $.deleteJSON = function(url,data,callback){
         type:"delete",
         contentType:"application/json",
         dataType:"json",
-        data:data,
+        data:JSON.stringify(data),
         success:function(msg){
             callback(msg);
         },
