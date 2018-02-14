@@ -2,12 +2,18 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:amq="http://activemq.apache.org/schema/core"
+       xmlns:jms="http://www.springframework.org/schema/jms"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-4.1.xsd
         http://www.springframework.org/schema/tx
-        http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+        http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+        http://www.springframework.org/schema/jms
+        http://www.springframework.org/schema/jms/spring-jms-4.3.xsd
+        http://activemq.apache.org/schema/core
+        http://activemq.apache.org/schema/core/activemq-core-5.14.4.xsd">
 
     <!-- Spring对com.xrom.ssh目录下的@Repository、@Service、@@Component注解标注的bean进行自动扫描 -->
     <context:component-scan base-package="com.cat">
@@ -83,4 +89,33 @@
         <!--开启事务-->
         <property name="enableTransactionSupport" value="true"/>
     </bean>
+
+
+    <!--activeMq-->
+    <amq:connectionFactory id="targetConnectionFactory" brokerURL="tcp://localhost:61616" userName="admin" password="admin" trustAllPackages="true" />
+
+    <!-- Spring用于管理真正的ConnectionFactory的ConnectionFactory -->
+    <bean id="amqConnectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
+        <!-- 目标ConnectionFactory对应真实的可以产生JMS Connection的ConnectionFactory -->
+        <property name="targetConnectionFactory" ref="targetConnectionFactory"/>
+    </bean>
+
+    <!-- Spring提供的JMS工具类，它可以进行消息发送、接收等 -->
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <!-- 这个connectionFactory对应的是我们定义的Spring提供的那个ConnectionFactory对象 -->
+        <property name="connectionFactory" ref="amqConnectionFactory"/>
+    </bean>
+
+    <!-- 消息监听器容器 -->
+    <jms:listener-container connection-factory="amqConnectionFactory">
+        <jms:listener destination="study.queue.simple" ref="consumerService" method="receiveMessage"/>
+        <jms:listener destination="study.queue.simple" ref="consumerService" method="receiveMessage2"/>
+        <jms:listener destination="study.queue.object" ref="consumerService" method="receiveObject" />
+    </jms:listener-container>
+
+    <jms:listener-container connection-factory="amqConnectionFactory" destination-type="topic">
+        <jms:listener destination="study.topic.simple" ref="consumerService" method="receiveTopicMessage"/>
+        <jms:listener destination="study.topic.simple" ref="consumerService" method="receiveTopicMessage2"/>
+    </jms:listener-container>
+
 </beans>
